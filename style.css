@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
 :root {
-    --bg-image: url('https://via.placeholder.com/800x800'); /* Default fallback */
+    --bg-image: url('/cover.png'); /* Default fallback */
 }
 
 body {
