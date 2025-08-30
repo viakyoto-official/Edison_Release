@@ -1,0 +1,173 @@
+/* Import a nice font (optional) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+
+:root {
+    --bg-image: url('https://via.placeholder.com/800x800'); /* Default fallback */
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top to see content first */
+    min-height: 100vh;
+    background-color: #121212;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+/* Blurred Background & Vignette Effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    
+    /* Layer 1: The Image */
+    background-image: var(--bg-image), 
+    /* Layer 2: The Vignette */
+                      radial-gradient(ellipse at center, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+    background-size: cover;
+    background-position: center;
+    
+    /* Effects */
+    filter: blur(20px);
+    transform: scale(1.1); /* Scale up to avoid blurred edges */
+}
+
+.container {
+    max-width: 600px;
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    text-align: center;
+    
+    /* Glassmorphism Effect */
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+}
+
+/* Header Styles */
+.release-header {
+    margin-bottom: 30px;
+}
+
+.album-art {
+    width: 70%;
+    max-width: 350px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.release-title {
+    font-size: 2.5em;
+    font-weight: 900;
+    margin: 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.artist-name {
+    font-size: 1.4em;
+    font-weight: 400;
+    margin-top: 5px;
+    color: #d1d1d1;
+}
+
+/* Links and Embeds */
+.links {
+    margin-top: 20px;
+}
+
+.embed-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio for YouTube */
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.embed-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* --- STYLES FOR LINK BUTTONS --- */
+.link-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.link-item:hover {
+    transform: scale(1.03);
+}
+
+.link-item i {
+    margin-right: 12px;
+    font-size: 1.5em; /* Made icon slightly larger to match text */
+}
+
+/* Platform-specific button colors */
+.spotify { background-color: rgba(29, 185, 84, 0.8); }
+.spotify:hover { background-color: rgba(29, 185, 84, 1); }
+
+.apple { background-color: rgba(250, 87, 193, 0.8); }
+.apple:hover { background-color: rgba(250, 87, 193, 1); }
+
+/* --- NEW BUTTON STYLES --- */
+.bandcamp { background-color: rgba(98, 154, 169, 0.8); }
+.bandcamp:hover { background-color: rgba(98, 154, 169, 1); }
+
+.soundcloud { background-color: rgba(255, 85, 0, 0.8); }
+.soundcloud:hover { background-color: rgba(255, 85, 0, 1); }
+
+
+/* Social Links */
+.social-links {
+    margin-top: 30px;
+}
+
+.social-icon {
+    font-size: 1.8em;
+    color: #b3b3b3;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.2s;
+}
+
+.social-icon:hover {
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    body { padding: 10px 0; }
+    .container { padding: 15px; }
+    .release-title { font-size: 2em; }
+    .artist-name { font-size: 1.2em; }
+}
